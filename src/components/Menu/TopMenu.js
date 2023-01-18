@@ -30,8 +30,8 @@ const TopMenuWrap = styled.ul`
 function TopMenu({ toggle }) {
     return (
         <TopMenuWrap toggle={toggle}>
-            <li><Link><RiHome5Line color='#fcfcfc' size='20' /></Link></li>
-            <li><Link><RiEdit2Line color='#fcfcfc' size='20' /></Link></li>
+            <li><Link to='/Main'><RiHome5Line color='#fcfcfc' size='20' /></Link></li>
+            <li><Link to='/Writing'><RiEdit2Line color='#fcfcfc' size='20' /></Link></li>
             <li><Link><RiFileCopy2Line color='#fcfcfc' size='20' /></Link></li>
         </TopMenuWrap>
     );
