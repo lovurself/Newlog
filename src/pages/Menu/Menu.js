@@ -4,10 +4,12 @@ import TopMenu from './TopMenu';
 import styled from 'styled-components';
 
 const MainContentWrap = styled.main`
-    width: ${({toggle}) => toggle ? 'calc(100% - 296px)' : 'calc(100% - 46px)'};
-    height: calc(100vh - 59px);
+    width: ${({toggle}) => toggle ? 'calc(100% - 296px)' : '100%'};
+    height: calc(100vh - 67px);
     float: right;
     margin-top: 59px;
+    margin-right: 8px;
+    transition: width .3s ease-in-out;
 `
 
 function Menu({ children }) {

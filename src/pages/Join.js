@@ -47,6 +47,7 @@ const JoinStyle = styled.div`
       .btnWrap {
         display: flex;
         justify-content: space-between;
+        margin-top: 30px;
       }
     }
   }

@@ -3,7 +3,7 @@ import Input from '../components/Input';
 
 import styled from 'styled-components';
 import Button from '../components/Button';
-import CheckBox from '../components/CheckBox';
+import Checkbox from '../components/Checkbox';
 import Join from './Join';
 
 const LoginWrap = styled.div`
@@ -98,7 +98,7 @@ function Login() {
                   marginBottom='20px'
                 />
 
-                <CheckBox 
+                <Checkbox 
                   name='rememberId'
                   label='아이디 저장'
                 />

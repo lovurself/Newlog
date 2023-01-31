@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaSearch, FaChevronLeft } from "react-icons/fa";
 import { FcFolder } from "react-icons/fc";
+import Alert from '../../components/Modal/Alert';
 
 const NavWrap = styled.div`
   position: fixed;
@@ -34,6 +35,9 @@ const NavWrap = styled.div`
       margin-bottom: 16px;
 
       li {
+          font-family: 'PretendardRegular';
+          font-size: 12px;
+          cursor: pointer;
         a {
           font-family: 'PretendardRegular';
           font-size: 12px;
@@ -143,12 +147,18 @@ function SideMenu({ toggle, toggleHandle }) {
     ]},
   ]);
 
+  // 폴더 메뉴 토글
   const menuReset = {
     folder1: false,
     folder2: false,
   };
-
   const [menuOpen, menuOpenSet] = useState({ ...menuReset });
+
+  // logout 클릭
+  const [modal, modalSet] = useState(false);
+  const logout = () => {
+    modalSet(!modal);
+  }
 
   return (
     <>
@@ -160,9 +170,9 @@ function SideMenu({ toggle, toggleHandle }) {
 
           {/* 옵션버튼 */}
           <ul className='links'>
-            <li><Link>My Page</Link></li>
-            <li><Link>Setting</Link></li>
-            <li><Link to='Login'>Logout</Link></li>
+            <li><Link to='/Mypage'>My Page</Link></li>
+            {/* <li><Link to='/Setting'>Setting</Link></li> */}
+            <li onClick={logout}>Logout</li>
           </ul>
 
           {/* 검색창 */}
@@ -196,9 +206,20 @@ function SideMenu({ toggle, toggleHandle }) {
         </NavWrap>
 
         {/* nav 여는 toggle */}
-        <NavOpen onClick={toggleHandle} toggle={toggle}><FaChevronLeft color='#fff' size='20' /></NavOpen>
+        <NavOpen onClick={toggleHandle} toggle={toggle}><FaChevronLeft color='#fff' size='18' /></NavOpen>
+
+        {/* 로그아웃 모달 */}
+        {
+          modal
+          ? <Alert 
+              className="small"
+              text="정말 로그아웃하시겠습니까?"
+              closeClick={logout}
+            /> 
+          : null
+        }
     </>
   );
 }
 
-export default SideMenu
+export default SideMenu;

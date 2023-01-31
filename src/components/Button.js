@@ -6,11 +6,17 @@ const ButtonStyle = styled.button`
   border: 0;
   border-radius: 4px;
   height: ${props => props.height || '40px'};
-  width: ${props => props.width || '100%'};
+  width: ${props => props.width || 'auto'};
   cursor: pointer;
   color: ${props => props.color || "#333"};
   margin-top: ${props => props.marginTop};
   border: ${props => props.borderWidth || 0} solid ${props => props.borderColor};
+
+  &.btnNormal {
+    min-width: 80px;
+    height: 32px;
+    padding: 0 12px;
+  }
 `
 
 function Button(prop) {
@@ -23,6 +29,7 @@ function Button(prop) {
           marginTop={prop.marginTop}
           borderWidth={prop.borderWidth}
           borderColor={prop.borderColor}
+          className={prop.className}
           onClick={prop.onClick}
         >
           {prop.children}
